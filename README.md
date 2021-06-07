@@ -221,6 +221,12 @@ interval:
           - light.turn_off: 
               id: rled
 ```
+🎁 Found this useful or want to say 'thanks' and support my efforts...
+
+[![BMC](https://www.buymeacoffee.com/assets/img/custom_images/white_img.png)](https://www.buymeacoffee.com/kireque) **And leave a me a message to let me know.**  ❤
+
+🍺 CHEERS! 👍
+
 
 [img1]: images/tuya_wb3s.jpg
 [img2]: images/wb3s_esp12.jpg
