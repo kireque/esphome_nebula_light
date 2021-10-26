@@ -98,6 +98,7 @@ captive_portal:
 
 # Enable logging
 logger:
+  level: INFO
 
 # Enable Home Assistant API
 api:
@@ -172,6 +173,8 @@ output:
   - platform: esp8266_pwm
     id: laser_pwm
     pin: GPIO5
+    # max_power: 80%
+    # frequency: 2000 Hz
     inverted: true
   - platform: esp8266_pwm
     id: motor_pwm
@@ -194,6 +197,19 @@ binary_sensor:
       mode: INPUT_PULLDOWN_16
       inverted: true
     name: ${name}_button
+    on_press:
+      then:
+        - light.turn_on: 
+            id: rgb_light
+            brightness: 30%
+        - light.turn_on: 
+            id: laser
+            brightness: 65%
+        - delay : 1h
+        - light.turn_off: 
+            id: rgb_light
+        - light.turn_off: 
+            id: laser
     
 interval:
   - interval: 1s
