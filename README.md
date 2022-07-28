@@ -8,7 +8,7 @@ Based on the idea of [3ative - How-to make a 'Galaxy Projector LED Nebula Light'
 I am using the smart version of the nebula light, which includes the use of the Tuya IOT platform. 
 
 ## Why go through all the trouble!?
-I am not a big fan of cheap and "smart" devices living inside my network. They are a potential security risk as security is not a big priority of companies like Tuya. 
+I am not a big fan of cheap and "smart" devices living inside my network. They are a potential security risk as security is not a big priority for companies like Tuya. 
 
 That is why I wanted to flash ESPhome on the device and be sure I have full control of the code running on the nebula light. And so the story begins...
 
@@ -139,11 +139,6 @@ light:
     output: laser_pwm
     restore_mode: ALWAYS_OFF
   - platform: monochromatic
-    name: ${name}_motor
-    id: motor
-    output: motor_pwm
-    restore_mode: ALWAYS_OFF
-  - platform: monochromatic
     name: ${name}_bled
     id: bled
     output: bled_pwm
@@ -155,7 +150,14 @@ light:
     output: rled_pwm
     restore_mode: ALWAYS_OFF
     internal: true
-    
+
+fan:
+  platform: speed
+  name: "${name}_Motor"
+  id: motor
+  output: motor_pwm
+  restore_mode: ALWAYS_OFF
+
 output:
   - platform: esp8266_pwm
     id: red
